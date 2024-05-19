@@ -7,6 +7,8 @@ window.addEventListener("DOMContentLoaded", init);
 function init() {
   // Get the recipes from localStorage
   let recipes = getRecipesFromStorage();
+  console.log('Recipes from storage:', recipes);  // Debug: Log recipes
+
   // Add each recipe to the <main> element
   addRecipesToDocument(recipes);
   // Add the event listeners to the form elements
@@ -38,13 +40,15 @@ function getRecipesFromStorage() {
 function addRecipesToDocument(recipes) {
   // A10. Get a reference to the <main> element
   const main = document.querySelector('main');
-  
+  console.log('Main element:', main);  // Debug: Log main element
+
   // A11. Loop through each of the recipes in the passed in array,
   // create a <recipe-card> element for each one, and populate
   // each <recipe-card> with that recipe data using element.data = ...
   // Append each element to <main>
   recipes.forEach(recipe => {
     const recipeCard = document.createElement('recipe-card');
+    console.log('Recipe card created:', recipeCard);  // Debug: Log recipe card
     recipeCard.data = recipe;
     main.appendChild(recipeCard);
   });
@@ -70,6 +74,7 @@ function saveRecipesToStorage(recipes) {
 function initFormHandler() {
   // B2. Get a reference to the <form> element
   const form = document.getElementById('new-recipe');
+  console.log('Form element:', form);  // Debug: Log form element
 
   // B3. Add an event listener for the 'submit' event, which fires when the submit button is clicked
   form.addEventListener('submit', (event) => {
